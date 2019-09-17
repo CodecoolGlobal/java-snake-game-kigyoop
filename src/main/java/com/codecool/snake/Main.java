@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class Main extends Application implements EventHandler<ActionEvent> {
+public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -22,8 +22,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         primaryStage.setScene(mainScene);
         primaryStage.show();
         game.start();
-
-        setRestartButton(game);
     }
 
     @Override
@@ -31,20 +29,5 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         System.out.println("Exiting..");
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-        Globals.getInstance().stopGame();
-        Globals.getInstance().display.clear();
-        Globals.getInstance().game.init();
-        Globals.getInstance().game.start();
 
-        setRestartButton(Globals.getInstance().game);
-    }
-
-    private void setRestartButton(Game game) {
-        Button button = new Button("Restart");
-        game.getChildren().add(button);
-        button.setOnAction(this);
-        game.requestFocus();
-    }
 }

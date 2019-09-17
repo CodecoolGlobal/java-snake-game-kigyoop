@@ -3,10 +3,12 @@ package com.codecool.snake;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
+import com.codecool.snake.eventhandler.ClickRestartHandler;
 import com.codecool.snake.eventhandler.InputHandler;
 
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
 
@@ -36,6 +38,7 @@ public class Game extends Pane {
 
     public void start() {
         setupInputHandling();
+        setRestartButton(Globals.getInstance().game);
         Globals.getInstance().startGame();
     }
 
@@ -55,5 +58,13 @@ public class Game extends Pane {
         Scene scene = getScene();
         scene.setOnKeyPressed(event -> InputHandler.getInstance().setKeyPressed(event.getCode()));
         scene.setOnKeyReleased(event -> InputHandler.getInstance().setKeyReleased(event.getCode()));
+    }
+
+    public void setRestartButton(Game game) {
+        Button button = new Button("Restart");
+        game.getChildren().add(button);
+        ClickRestartHandler clickHandler = new ClickRestartHandler();
+        button.setOnAction(clickHandler);
+        game.requestFocus();
     }
 }
