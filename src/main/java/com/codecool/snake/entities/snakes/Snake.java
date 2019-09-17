@@ -2,28 +2,36 @@ package com.codecool.snake.entities.snakes;
 
 import com.codecool.snake.DelayedModificationList;
 import com.codecool.snake.Globals;
-import com.codecool.snake.Main;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
-
+import javafx.application.Platform;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
+
+
+
+import java.util.Objects;
+import java.util.Optional;
 
 
 public class Snake implements Animatable {
     /*private static final*/ float speed = 2;
     private int health = 100;
+    public int startParts = 4;
 
     private SnakeHead head;
     private DelayedModificationList<GameEntity> body;
+    public int snakeLenght;
 
 
     public Snake(Point2D position) {
         head = new SnakeHead(this, position);
         body = new DelayedModificationList<>();
 
-        addPart(4);
+        addPart(startParts);
     }
 
     public void step() {
@@ -50,7 +58,9 @@ public class Snake implements Animatable {
         for (int i = 0; i < numParts; i++) {
             SnakeBody newBodyPart = new SnakeBody(position);
             body.add(newBodyPart);
+
         }
+        snakeLenght = body.lenght();
         Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
     }
 
@@ -61,8 +71,11 @@ public class Snake implements Animatable {
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
+            System.out.println(snakeLenght);
             Globals.getInstance().stopGame();
-            //Main.main();
+            gameOverMessage();
+
+
         }
     }
 
@@ -79,5 +92,18 @@ public class Snake implements Animatable {
 
         if(result != null) return result;
         return head;
+    }
+
+    private void gameOverMessage(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Dead message");
+        alert.setHeaderText(null);
+        if (snakeLenght > 0){
+            snakeLenght += head.numOfParts-startParts;
+        }
+        alert.setContentText("Niga you is dead, "+ "you scored " + snakeLenght + " pointz");
+        //alert.setOnHidden(evt -> Platform.exit());
+        alert.show();
+
     }
 }

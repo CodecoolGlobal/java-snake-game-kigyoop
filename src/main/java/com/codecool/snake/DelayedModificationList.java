@@ -61,4 +61,9 @@ public class DelayedModificationList<T> {
         newObjects.clear();
         oldObjects.clear();
     }
+
+    public int lenght(){
+        System.out.print(objects.size());
+        return objects.size();
+    }
 }
