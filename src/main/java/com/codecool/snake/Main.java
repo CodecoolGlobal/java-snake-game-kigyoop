@@ -23,10 +23,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         primaryStage.show();
         game.start();
 
-        Button button = new Button("Restart");
-        game.getChildren().add(button);
-        button.setOnAction(this);
-        game.requestFocus();
+        setRestartButton(game);
     }
 
     @Override
@@ -41,9 +38,13 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Globals.getInstance().game.init();
         Globals.getInstance().game.start();
 
+        setRestartButton(Globals.getInstance().game);
+    }
+
+    private void setRestartButton(Game game) {
         Button button = new Button("Restart");
-        Globals.getInstance().game.getChildren().add(button);
+        game.getChildren().add(button);
         button.setOnAction(this);
-        Globals.getInstance().game.requestFocus();
+        game.requestFocus();
     }
 }
