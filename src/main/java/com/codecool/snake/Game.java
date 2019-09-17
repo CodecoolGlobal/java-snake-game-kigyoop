@@ -10,11 +10,13 @@ import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 
 public class Game extends Pane {
     private Snake snake = null;
     private GameTimer gameTimer = new GameTimer();
+    private Text healthText = null;
 
 
     public Game() {
@@ -22,7 +24,9 @@ public class Game extends Pane {
         Globals.getInstance().display = new Display(this);
         Globals.getInstance().setupResources();
 
+
         init();
+        this.healthText = new Text(10, 50, "Health:" + snake.getHealth());
     }
 
     public void init() {
@@ -39,6 +43,7 @@ public class Game extends Pane {
     public void start() {
         setupInputHandling();
         setRestartButton(Globals.getInstance().game);
+        showHealth();
         Globals.getInstance().startGame();
     }
 
@@ -67,4 +72,14 @@ public class Game extends Pane {
         button.setOnAction(clickHandler);
         game.requestFocus();
     }
+
+    public void showHealth(){
+        healthText.setText("Health: " + snake.getHealth());
+        this.getChildren().add(healthText);
+    }
+
+    public Text getHealthText(){
+        return healthText;
+    }
 }
+
