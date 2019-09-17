@@ -26,6 +26,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Button button = new Button("Restart");
         game.getChildren().add(button);
         button.setOnAction(this);
+        game.requestFocus();
     }
 
     @Override
@@ -43,5 +44,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Button button = new Button("Restart");
         Globals.getInstance().game.getChildren().add(button);
         button.setOnAction(this);
+        Globals.getInstance().game.requestFocus();
     }
 }
