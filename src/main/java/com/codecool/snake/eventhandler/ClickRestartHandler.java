@@ -13,5 +13,4 @@ public class ClickRestartHandler implements EventHandler<ActionEvent> {
         Globals.getInstance().game.init();
         Globals.getInstance().game.start();
     }
-
 }

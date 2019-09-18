@@ -10,7 +10,7 @@ public class BoostPowerUP extends SimplePowerUp implements Interactable {
     private static Random rnd = new Random();
 
     public BoostPowerUP() {
-        setImage(Globals.getInstance().getImage("PowerUpBerry"));
+        setImage(Globals.getInstance().getImage("BoostPower"));
 
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
