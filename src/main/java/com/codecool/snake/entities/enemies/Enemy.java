@@ -1,6 +1,7 @@
 package com.codecool.snake.entities.enemies;
 
 import com.codecool.snake.Globals;
+import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Interactable;
@@ -10,11 +11,11 @@ import javafx.geometry.Point2D;
 import java.util.Random;
 
 public abstract class Enemy extends GameEntity implements Animatable, Interactable {
-    private final int damage;
-    protected Point2D heading;
     protected static Random rnd = new Random();
-    protected double direction;
-    protected int speed;
+    private final int damage;
+    private Point2D heading;
+    private double direction;
+    private int speed;
 
     public Enemy(int damage) {
         this.damage = damage;
@@ -34,9 +35,39 @@ public abstract class Enemy extends GameEntity implements Animatable, Interactab
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
     }
 
+    public Point2D getHeading() {
+        return heading;
+    }
+
+    public double getDirection() {
+        return direction;
+    }
+
+    public void setDirectionAndHeading(double direction) {
+        this.direction = direction;
+        this.heading = Utils.directionToVector(direction, speed);
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeedAndHeading(int speed) {
+        this.speed = speed;
+        this.heading = Utils.directionToVector(direction, speed);
+    }
+
+    public void setFullHeading(double direction, int speed) {
+        this.direction = direction;
+        this.speed = speed;
+        this.heading = Utils.directionToVector(direction, speed);
+    }
+
     protected void actionDisappear() {
        destroy();
     }
+
+
 
     @Override
     public void step() {
