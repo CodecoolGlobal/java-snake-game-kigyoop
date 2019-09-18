@@ -13,6 +13,8 @@ public abstract class Enemy extends GameEntity implements Animatable, Interactab
     private final int damage;
     protected Point2D heading;
     protected static Random rnd = new Random();
+    protected double direction;
+    protected int speed;
 
     public Enemy(int damage) {
         this.damage = damage;
@@ -23,7 +25,7 @@ public abstract class Enemy extends GameEntity implements Animatable, Interactab
         return damage;
     }
 
-    protected void setUpHeading() {
+    protected void updateHeading() {
         //Default empty
     }
 
@@ -32,11 +34,15 @@ public abstract class Enemy extends GameEntity implements Animatable, Interactab
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
     }
 
+    protected void actionDisappear() {
+       destroy();
+    }
+
     @Override
     public void step() {
-        setUpHeading();
+        updateHeading();
         if (isOutOfBounds()) {
-            destroy();
+            actionDisappear();
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());

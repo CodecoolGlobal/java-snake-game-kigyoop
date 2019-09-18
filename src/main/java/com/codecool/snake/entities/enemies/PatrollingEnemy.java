@@ -5,8 +5,6 @@ import com.codecool.snake.Utils;
 import javafx.scene.image.Image;
 
 public class PatrollingEnemy extends Enemy{
-    protected double direction;
-    protected int speed;
 
     public PatrollingEnemy(){
         super(10);
@@ -19,8 +17,13 @@ public class PatrollingEnemy extends Enemy{
     }
 
     @Override
-    protected void setUpHeading() {
+    protected void updateHeading() {
         direction += 0.5;
         heading = Utils.directionToVector(direction, speed);
+    }
+
+    @Override
+    protected void actionDisappear() {
+       setUpPosition();
     }
 }

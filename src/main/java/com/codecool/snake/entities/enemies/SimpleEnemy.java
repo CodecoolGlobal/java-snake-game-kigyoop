@@ -19,11 +19,18 @@ public class SimpleEnemy extends Enemy implements Animatable, Interactable {
 
         setImage(Globals.getInstance().getImage("EnemyScooter"));
 
-        double direction = rnd.nextDouble() * 360;
+        this.direction = rnd.nextDouble() * 360;
         setRotate(direction);
 
-        int speed = 1;
-        heading = Utils.directionToVector(direction, speed);
+        this.speed = 1;
+        this.heading = Utils.directionToVector(direction, speed);
     }
 
+
+
+    @Override
+    protected void actionDisappear() {
+        direction = (direction + 180) % 360;
+        heading = Utils.directionToVector(direction, speed);
+    }
 }
