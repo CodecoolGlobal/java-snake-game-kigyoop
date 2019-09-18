@@ -18,8 +18,13 @@ public abstract class Enemy extends GameEntity implements Animatable, Interactab
         return damage;
     }
 
+    protected void setUpHeading() {
+        //Default empty
+    }
+
     @Override
     public void step() {
+        setUpHeading();
         if (isOutOfBounds()) {
             destroy();
         }
@@ -29,7 +34,7 @@ public abstract class Enemy extends GameEntity implements Animatable, Interactab
 
     @Override
     public void apply(GameEntity entity) {
-        if(entity instanceof SnakeHead){
+        if (entity instanceof SnakeHead) {
             destroy();
         }
     }
