@@ -1,6 +1,9 @@
 package com.codecool.snake;
 
+import com.codecool.snake.entities.powerups.BoostPowerUP;
 import javafx.geometry.Point2D;
+
+import java.util.Random;
 
 public class Utils {
 
@@ -12,5 +15,11 @@ public class Utils {
         double directionInRadians = directionInDegrees / 180 * Math.PI;
         Point2D heading = new Point2D(length * Math.sin(directionInRadians), - length * Math.cos(directionInRadians));
         return heading;
+    }
+
+    public void randomChance(int chance){
+        if (new Random().nextInt(chance) == 0) {
+            new BoostPowerUP();
+        }
     }
 }

@@ -46,8 +46,8 @@ public class SnakeHead extends GameEntity implements Interactable {
 
         new SimplePowerUp();
         new SimpleEnemy();
-        new BoostPowerUP();
-        new LifePowerUp();
+        //new BoostPowerUP();
+        //new LifePowerUp();
 
         if(entity instanceof Enemy) {
             System.out.println(getMessage());
