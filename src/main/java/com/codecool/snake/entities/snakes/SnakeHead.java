@@ -14,6 +14,7 @@ import javafx.geometry.Point2D;
 public class SnakeHead extends GameEntity implements Interactable {
     private static final float turnRate = 2;
     private Snake snake;
+    public int numOfParts = 3;
 
     public SnakeHead(Snake snake, Point2D position) {
         this.snake = snake;
@@ -47,11 +48,11 @@ public class SnakeHead extends GameEntity implements Interactable {
         if(entity instanceof Enemy) {
             System.out.println(getMessage());
             snake.changeHealth(((Enemy) entity).getDamage());
-            snake.speed -= 1;
+            snake.speed -= 0.2;
         }
         if(entity instanceof SimplePowerUp){
             System.out.println(getMessage());
-            snake.addPart(6);
+            snake.addPart(numOfParts);
             snake.speed += 0.2;
         }
     }
