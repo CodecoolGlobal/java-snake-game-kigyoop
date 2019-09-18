@@ -2,6 +2,8 @@ package com.codecool.snake.entities.snakes;
 
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
+import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.enemies.Enemy;
 import javafx.geometry.Point2D;
 
 import java.util.LinkedList;
@@ -9,7 +11,7 @@ import java.util.Queue;
 
 
 
-public class SnakeBody extends GameEntity {
+public class SnakeBody extends GameEntity implements Interactable {
     private Queue<Point2D> history = new LinkedList<>();
     private static final int historySize = 10;
     private Snake snake;
@@ -32,4 +34,16 @@ public class SnakeBody extends GameEntity {
         history.add(pos); // add the parent's current position to the beginning of the history
     }
 
+    @Override
+    public void apply(GameEntity entity) {
+        if (entity instanceof Enemy) {
+            int damage = (((Enemy) entity).getDamage()) * (-1);
+            snake.changeHealth(damage);
+        }
+    }
+
+    @Override
+    public String getMessage() {
+        return "Hello";
+    }
 }
