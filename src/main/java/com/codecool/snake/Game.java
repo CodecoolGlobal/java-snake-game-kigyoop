@@ -98,5 +98,9 @@ public class Game extends Pane {
     public Text getHealthText(){
         return healthText;
     }
+
+    public Snake getSnake() {
+        return snake;
+    }
 }
 

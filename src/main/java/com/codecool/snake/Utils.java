@@ -4,6 +4,7 @@ import com.codecool.snake.entities.powerups.BoostPowerUP;
 import javafx.geometry.Point2D;
 
 import java.util.Random;
+import java.util.function.ToDoubleBiFunction;
 
 public class Utils {
 
@@ -21,5 +22,10 @@ public class Utils {
         if (new Random().nextInt(chance) == 0) {
             new BoostPowerUP();
         }
+    }
+
+    public static double vectorToDirection(Point2D startPosition, Point2D endPosition) {
+        //TODO
+        return 0;
     }
 }
