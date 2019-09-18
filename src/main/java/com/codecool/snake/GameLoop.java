@@ -3,13 +3,18 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.powerups.BoostPowerUP;
 import com.codecool.snake.entities.snakes.Snake;
+import com.codecool.snake.Utils;
 
 import java.util.List;
+import java.util.Random;
 
 public class GameLoop {
     private Snake snake;
     private boolean running = false;
+    int frame;
 
     public GameLoop(Snake snake) { this.snake = snake; }
 
@@ -22,6 +27,7 @@ public class GameLoop {
     }
 
     public void step() {
+
         if(running) {
             snake.step();
             for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
@@ -30,6 +36,14 @@ public class GameLoop {
                 }
             }
             checkCollisions();
+
+
+            if(new Random().nextInt(700)==0){
+                new BoostPowerUP();
+            }
+            if(new Random().nextInt(500)==0){
+                new SimpleEnemy();
+            }
         }
 
         Globals.getInstance().display.frameFinished();
