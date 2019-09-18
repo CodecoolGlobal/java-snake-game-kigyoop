@@ -31,16 +31,4 @@ public class SimpleEnemy extends Enemy implements Animatable, Interactable {
         heading = Utils.directionToVector(direction, speed);
     }
 
-
-    @Override
-    public void apply(GameEntity entity) {
-        if(entity instanceof SnakeHead){
-            destroy();
-        }
-    }
-
-    @Override
-    public String getMessage() {
-        return (getDamage() + " damage");
-    }
 }
