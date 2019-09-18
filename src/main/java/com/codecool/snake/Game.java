@@ -1,5 +1,6 @@
 package com.codecool.snake;
 
+import com.codecool.snake.entities.enemies.ChasingEnemy;
 import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.enemies.PatrollingEnemy;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
@@ -61,6 +62,7 @@ public class Game extends Pane {
         for(int i = 0; i < numberOfEnemies; ++i){
             new SimpleEnemy();
             new PatrollingEnemy();
+            new ChasingEnemy();
         }
     }
 
