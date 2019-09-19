@@ -98,13 +98,12 @@ public class Snake implements Animatable {
 
     private void gameOverMessage(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Dead message");
+        alert.setTitle("Game Over");
         alert.setHeaderText(null);
         if (snakeLenght > 0){
             snakeLenght += head.numOfParts-startParts;
         }
-        alert.setContentText("Niga you is dead, "+ "you scored " + snakeLenght + " pointz");
-        //alert.setOnHidden(evt -> Platform.exit());
+        alert.setContentText("You scored " + snakeLenght + " points.");
         alert.show();
     }
 
