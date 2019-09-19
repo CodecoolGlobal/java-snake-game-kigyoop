@@ -102,9 +102,9 @@ public class Snake implements Animatable {
         alert.setTitle("Game Over");
         alert.setHeaderText(null);
         if (snakeLength > 0){
-            snakeLength += head.numOfPartsToAdd - startParts;
+            snakeLength -= startParts;
         }
-        alert.setContentText("You scored " + snakeLength + " points.");
+        alert.setContentText("You collected " + snakeLength + " points.");
         alert.show();
     }
 
@@ -114,5 +114,10 @@ public class Snake implements Animatable {
             if (bodyPart.intersects(entity)) return true;
         }
         return false;
+    }
+
+    public void slowDown() {
+        speed = (float) Math.max(speed - 0.2, Snake.minSpeed);
+        //head.turnRate += 1;
     }
 }

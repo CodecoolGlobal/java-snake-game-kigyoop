@@ -13,7 +13,7 @@ import javafx.geometry.Point2D;
 
 
 public class SnakeHead extends GameEntity implements Interactable {
-    private float turnRate = 3;
+    public float turnRate = 3;
     private Snake snake;
     public int numOfPartsToAdd = 3;
 
@@ -52,23 +52,22 @@ public class SnakeHead extends GameEntity implements Interactable {
 
         /* powerups */
 
-        // simple: adds parts
+        // simple: adds parts, increse speed a bit
         if(entity instanceof SimplePowerUp){
             System.out.println(getMessage());
             snake.addPart(numOfPartsToAdd);
             snake.speed += 0.2;
         }
-        // boost: increase speed
+        // boost: increase speed more
         if(entity instanceof BoostPowerUP){
             System.out.println(getMessage());
             snake.speed += 0.4;
-            turnRate += 1;
         }
         // life: increase health, decrease speed
         if(entity instanceof LifePowerUp){
             System.out.println(getMessage());
             snake.changeHealth(30);
-            snake.speed -= 0.2;
+            snake.slowDown();
         }
     }
 
