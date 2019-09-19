@@ -6,12 +6,14 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import java.util.Random;
 
-
+/**
+ * Adds parts to the snake. (Hot dog)
+ */
 public class SimplePowerUp extends GameEntity implements Interactable {
     private static Random rnd = new Random();
 
     public SimplePowerUp() {
-        setImage(Globals.getInstance().getImage("PowerUpBerry"));
+        setImage(Globals.getInstance().getImage("HotDog"));
 
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
@@ -20,7 +22,7 @@ public class SimplePowerUp extends GameEntity implements Interactable {
     @Override
     public void apply(GameEntity entity) {
         if(entity instanceof SnakeHead){
-            System.out.println(getMessage());
+            System.out.println(entity.getMessage());
             destroy();
         }
     }

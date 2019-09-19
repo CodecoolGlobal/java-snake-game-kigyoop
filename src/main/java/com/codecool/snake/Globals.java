@@ -29,14 +29,14 @@ public class Globals {
         resources.addImage("SnakeHead", new Image("tourist1.png"));
         resources.addImage("SnakeBody", new Image("standingtourist.png"));
         resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
-        resources.addImage("PowerUpBerry", new Image("beer.png"));
+        resources.addImage("Beer", new Image("beer.png"));
         resources.addImage("EnemyBird", new Image("pigeon.png"));
         resources.addImage("EnemyGreenBug", new Image("greenbug.png"));
         resources.addImage("EnemyBrownBug", new Image("brownbug.png"));
         resources.addImage("EnemyBomb", new Image("bomb.png"));
         resources.addImage("EnemyScooter", new Image("scooter.png"));
         resources.addImage("BoostPower", new Image("starbucks.png"));
-        resources.addImage("LifePower", new Image("hotdog.png"));
+        resources.addImage("HotDog", new Image("hotdog.png"));
         resources.addImage("EnemyDog", new Image("dog2.png"));
         resources.addImage("EnemyPoop", new Image("poop1small.png"));
 

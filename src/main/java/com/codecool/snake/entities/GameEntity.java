@@ -36,4 +36,6 @@ public abstract class GameEntity extends ImageView {
     public boolean intersects(GameEntity otherEntity) {
         return getBoundsInParent().intersects(otherEntity.getBoundsInParent());
     }
+
+    public String getMessage() {return "gameEntity action happened";}
 }

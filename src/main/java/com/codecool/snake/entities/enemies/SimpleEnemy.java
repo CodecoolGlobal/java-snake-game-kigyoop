@@ -6,7 +6,7 @@ import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
 
 /**
- * Moves back and forth between edges of the field.
+ * Moves back and forth between edges of the field. (Scooter)
  */
 public class SimpleEnemy extends Enemy implements Animatable, Interactable {
 

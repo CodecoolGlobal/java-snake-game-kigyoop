@@ -3,7 +3,7 @@ package com.codecool.snake.entities.enemies;
 import com.codecool.snake.Globals;
 
 /**
- * Moves in a circle.
+ * Moves in a circle. (Pigeon)
  */
 public class PatrollingEnemy extends Enemy {
 

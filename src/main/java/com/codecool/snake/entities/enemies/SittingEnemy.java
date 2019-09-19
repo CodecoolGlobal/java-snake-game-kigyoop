@@ -4,7 +4,7 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Interactable;
 
 /**
- * Does not move.
+ * Does not move. (Poop)
  */
 public class SittingEnemy extends Enemy implements Interactable {
     public SittingEnemy() {

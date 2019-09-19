@@ -15,7 +15,7 @@ import javafx.geometry.Point2D;
 public class SnakeHead extends GameEntity implements Interactable {
     private float turnRate = 3;
     private Snake snake;
-    public int numOfParts = 3;
+    public int numOfPartsToAdd = 3;
 
     public SnakeHead(Snake snake, Point2D position) {
         this.snake = snake;
@@ -43,25 +43,32 @@ public class SnakeHead extends GameEntity implements Interactable {
     @Override
     public void apply(GameEntity entity) {
 
+        // all enemies makes you slower and less healthy if you eat them, but they will disappear
         if(entity instanceof Enemy) {
             System.out.println(getMessage());
-            snake.changeHealth(((Enemy) entity).getDamage());
+            snake.changeHealth(-((Enemy) entity).getDamage());
             snake.speed = (float) Math.max(snake.speed - 0.2, Snake.minSpeed);
         }
+
+        /* powerups */
+
+        // simple: adds parts
         if(entity instanceof SimplePowerUp){
             System.out.println(getMessage());
-            snake.addPart(numOfParts);
+            snake.addPart(numOfPartsToAdd);
             snake.speed += 0.2;
         }
+        // boost: increase speed
         if(entity instanceof BoostPowerUP){
             System.out.println(getMessage());
             snake.speed += 0.4;
             turnRate += 1;
         }
+        // life: increase health, decrease speed
         if(entity instanceof LifePowerUp){
             System.out.println(getMessage());
-            snake.speed += 0.4;
-            turnRate += 1;
+            snake.changeHealth(30);
+            snake.speed -= 0.2;
         }
     }
 

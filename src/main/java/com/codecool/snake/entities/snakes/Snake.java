@@ -14,12 +14,12 @@ import javafx.scene.text.Text;
 public class Snake implements Animatable {
     /*private static final*/ float speed = 2;
     public static final double minSpeed = 0.2;
-    private int health = 100;
+    private int health = 1000;
     public int startParts = 4;
 
     private SnakeHead head;
     private DelayedModificationList<GameEntity> body;
-    public int snakeLenght;
+    public int snakeLength;
 
 
     public Snake(Point2D position) {
@@ -58,7 +58,7 @@ public class Snake implements Animatable {
             SnakeBody newBodyPart = new SnakeBody(position);
             body.add(newBodyPart);
         }
-        snakeLenght = body.lenght();
+        snakeLength = body.lenght();
         Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
     }
 
@@ -76,7 +76,7 @@ public class Snake implements Animatable {
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
-            System.out.println(snakeLenght);
+            System.out.println(snakeLength);
             Globals.getInstance().stopGame();
             gameOverMessage();
         }
@@ -101,10 +101,10 @@ public class Snake implements Animatable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Game Over");
         alert.setHeaderText(null);
-        if (snakeLenght > 0){
-            snakeLenght += head.numOfParts-startParts;
+        if (snakeLength > 0){
+            snakeLength += head.numOfPartsToAdd - startParts;
         }
-        alert.setContentText("You scored " + snakeLenght + " points.");
+        alert.setContentText("You scored " + snakeLength + " points.");
         alert.show();
     }
 
