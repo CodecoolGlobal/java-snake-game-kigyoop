@@ -43,35 +43,36 @@ public class GameLoop {
                 }
             }
             checkCollisions();
+            addNewItemsRandomly();
+        }
+        Globals.getInstance().display.frameFinished();
+    }
 
-            // new powerups:
-            if (Utils.getRandomForEvent(20)) {
-                new BoostPowerUP();
-            }
-            if (Utils.getRandomForEvent(10)) {
-                new LifePowerUp();
-            }
-            if (Utils.getRandomForEvent(10)) {
-                new SimplePowerUp();
-            }
-
-            // new enemies
-            if (Utils.getRandomForEvent(20)) {
-                Globals.getInstance().game.spawnEnemy(ChasingEnemy.class);
-            }
-            if (Utils.getRandomForEvent(20)) {
-                Globals.getInstance().game.spawnEnemy(PatrollingEnemy.class);
-            }
-            if (Utils.getRandomForEvent(20)) {
-                Globals.getInstance().game.spawnEnemy(SimpleEnemy.class);
-            }
-            if (Utils.getRandomForEvent(20)) {
-                Globals.getInstance().game.spawnEnemy(SittingEnemy.class);
-            }
-
+    private void addNewItemsRandomly() {
+        // new powerups:
+        if (Utils.getRandomForEvent(20)) {
+            new BoostPowerUP();
+        }
+        if (Utils.getRandomForEvent(10)) {
+            new LifePowerUp();
+        }
+        if (Utils.getRandomForEvent(10)) {
+            new SimplePowerUp();
         }
 
-        Globals.getInstance().display.frameFinished();
+        // new enemies
+        if (Utils.getRandomForEvent(20)) {
+            Globals.getInstance().game.spawnEnemy(ChasingEnemy.class);
+        }
+        if (Utils.getRandomForEvent(20)) {
+            Globals.getInstance().game.spawnEnemy(PatrollingEnemy.class);
+        }
+        if (Utils.getRandomForEvent(20)) {
+            Globals.getInstance().game.spawnEnemy(SimpleEnemy.class);
+        }
+        if (Utils.getRandomForEvent(20)) {
+            Globals.getInstance().game.spawnEnemy(SittingEnemy.class);
+        }
     }
 
     private void checkCollisions() {
