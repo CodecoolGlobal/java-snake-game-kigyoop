@@ -21,7 +21,6 @@ public class ChasingEnemy extends Enemy{
         Point2D snakeHeadPosition = head.getPosition();
         Point2D startPosition = this.getPosition();
         double direction = Utils.vectorToDirection(startPosition, snakeHeadPosition);
-        System.out.println( direction);
         setDirectionAndHeading(direction);
 
     }

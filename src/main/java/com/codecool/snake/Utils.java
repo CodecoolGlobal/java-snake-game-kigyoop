@@ -36,37 +36,33 @@ public class Utils {
 
         double VectorX = EndX - StartX;
         double VectorY = EndY - StartY;
-        double VectorDivision = VectorY/VectorX;
+        //System.out.println(EndX);
+        //System.out.println(EndY);
 
+        double VectorDivision = VectorY/VectorX;
         double Shortdegree = Math.toDegrees(atan(VectorDivision));
 
+        if(Shortdegree<0){
+            Shortdegree = Shortdegree*(-1);
+        }
 
-        if (VectorX > 0 || VectorY > 0){ // + +
-            return Shortdegree;
-        } else if (VectorX < 0 || VectorY > 0){  // - +
-            return 180-Shortdegree;
-        } else if (VectorX < 0 || VectorY < 0){  // - -
-            return 180+Shortdegree;
-        } else if (VectorX > 0 || VectorY < 0){  // + -
-            return 360-Shortdegree;
-        } else if (VectorX == 0 || VectorY>0){   // 0 +
+        if (VectorX > 0 && VectorY > 0){        // + +
+            return Shortdegree+90;
+        } else if (VectorX < 0 && VectorY > 0){  // - +
+            return 180-Shortdegree+90;
+        } else if (VectorX < 0 && VectorY < 0){  // - -
+            return 180+Shortdegree+90;
+        } else if (VectorX > 0 && VectorY < 0) {  // + -
+            return 360 - Shortdegree + 90;
+        } else if (VectorX == 0 && VectorY>0){   // 0 +
             return 90;
-        } else if (VectorX == 0 || VectorY<0){   // 0 -
+        } else if (VectorX == 0 && VectorY<0){   // 0 -
             return 270;
-        } else if (VectorY == 0 || VectorX>0){   // + 0
+        } else if (VectorX>0 && VectorY == 0){   // + 0
             return 0;
-        } else if (VectorY == 0 || VectorX<0){   // - 0
+            //return 0;
+        } else {                                // - 0
             return 180;
         }
-
-        return 180;
-        /*
-        if (Shortdegree >= 30) {
-            return -45;
-        } else {
-            return -45;
-        }
-        */
     }
-
 }
