@@ -5,17 +5,10 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
-import javafx.application.Platform;
 import javafx.geometry.Point2D;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
-
-
-
-import java.util.Objects;
-import java.util.Optional;
 
 
 public class Snake implements Animatable {
@@ -63,7 +56,6 @@ public class Snake implements Animatable {
         for (int i = 0; i < numParts; i++) {
             SnakeBody newBodyPart = new SnakeBody(position);
             body.add(newBodyPart);
-
         }
         snakeLenght = body.lenght();
         Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
@@ -86,8 +78,6 @@ public class Snake implements Animatable {
             System.out.println(snakeLenght);
             Globals.getInstance().stopGame();
             gameOverMessage();
-
-
         }
     }
 
@@ -116,6 +106,13 @@ public class Snake implements Animatable {
         alert.setContentText("Niga you is dead, "+ "you scored " + snakeLenght + " pointz");
         //alert.setOnHidden(evt -> Platform.exit());
         alert.show();
+    }
 
+    public boolean intersectsEntity(GameEntity entity) {
+        if (head.intersects(entity)) return true;
+        for (GameEntity bodyPart : body) {
+            if (bodyPart.intersects(entity)) return true;
+        }
+        return false;
     }
 }

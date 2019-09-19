@@ -1,14 +1,16 @@
 package com.codecool.snake;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * A special container which maintains a list of objects. If any modification (addition, removal)
  * is done, it won't happen until the doPendingModifications() method is called
  */
-public class DelayedModificationList<T> {
+public class DelayedModificationList<T> implements Iterable<T> {
     private List<T> objects = new LinkedList<>();
     private List<T> newObjects = new LinkedList<>();// Holds game objects crated in this frame.
     private List<T> oldObjects = new LinkedList<>();// Holds game objects that will be destroyed this frame.
@@ -66,4 +68,11 @@ public class DelayedModificationList<T> {
         System.out.print(objects.size());
         return objects.size();
     }
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return objects.iterator();
+    }
+
 }

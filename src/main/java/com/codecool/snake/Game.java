@@ -60,12 +60,18 @@ public class Game extends Pane {
     }
 
     private void spawnEnemies(int numberOfEnemies) {
-       /* for(int i = 0; i < numberOfEnemies; ++i){
-            //new SimpleEnemy();
-            //new PatrollingEnemy();
-            new ChasingEnemy();
-        }*/
-       new ChasingEnemy();
+        Enemy enemy;
+        for(int i = 0; i < numberOfEnemies; ++i){
+            do {
+                enemy = new SimpleEnemy();
+            } while (snake.intersectsEntity(enemy));
+            do {
+                enemy = new PatrollingEnemy();
+            } while (snake.intersectsEntity(enemy));
+            do {
+                enemy = new ChasingEnemy();
+            } while (snake.intersectsEntity(enemy));
+        }
     }
 
     private void spawnPowerUps(int numberOfPowerUps) {

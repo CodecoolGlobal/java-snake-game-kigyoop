@@ -32,4 +32,8 @@ public abstract class GameEntity extends ImageView {
         }
         return false;
     }
+
+    public boolean intersects(GameEntity otherEntity) {
+        return getBoundsInParent().intersects(otherEntity.getBoundsInParent());
+    }
 }
