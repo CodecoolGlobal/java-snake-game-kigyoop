@@ -67,12 +67,24 @@ public class Game extends Pane {
         spawnMultipleEnemies(SittingEnemy.class, 2);
     }
 
+    /**
+     * Create the given number of enemies of the given Enemy subclass.
+     *
+     * They won't be on the snake.
+     * @param typeOfEnemy class of the enemies needed
+     */
     private void spawnMultipleEnemies(Class<? extends Enemy> typeOfEnemy, int numberOfEnemies) {
         for (int i = 0; i < numberOfEnemies; ++i) {
             spawnEnemy(typeOfEnemy);
         }
     }
 
+    /**
+     * Create an enemy of the given Enemy subclass.
+     *
+     * It won't intersect the snake.
+     * @param typeOfEnemy class of the enemy needed
+     */
     private void spawnEnemy(Class<? extends Enemy> typeOfEnemy) {
         Enemy enemy = null;
         boolean notYet = true;
