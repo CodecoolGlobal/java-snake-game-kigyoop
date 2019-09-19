@@ -15,4 +15,9 @@ public class LifePowerUp extends SimplePowerUp implements Interactable {
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
     }
+
+    @Override
+    public String getMessage() {
+        return "Got life power-up :)";
+    }
 }

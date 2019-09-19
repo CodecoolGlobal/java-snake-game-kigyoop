@@ -5,6 +5,9 @@ import com.codecool.snake.Utils;
 import com.codecool.snake.entities.GameEntity;
 import javafx.geometry.Point2D;
 
+/**
+ * Always moves towards the snake's head.
+ */
 public class ChasingEnemy extends Enemy{
 
     public ChasingEnemy(){
