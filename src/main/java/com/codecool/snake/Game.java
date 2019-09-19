@@ -15,6 +15,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 
 public class Game extends Pane {
     private Snake snake = null;
@@ -34,7 +37,7 @@ public class Game extends Pane {
 
     public void init() {
         spawnSnake();
-        spawnEnemies(4);
+        spawnEnemies();
         spawnPowerUps(4);
         spawnBoostPowerUPs(2);
         spawnLifePowerUPs(1);
@@ -56,32 +59,57 @@ public class Game extends Pane {
         snake = new Snake(new Point2D(500, 500));
     }
 
-    private void spawnEnemies(int numberOfEnemies) {
-        Enemy enemy;
-        for(int i = 0; i < numberOfEnemies; ++i){
-            do {
-                enemy = new SimpleEnemy();
-            } while (snake.intersectsEntity(enemy));
-            do {
-                enemy = new PatrollingEnemy();
-            } while (snake.intersectsEntity(enemy));
-            do {
-                enemy = new ChasingEnemy();
-            } while (snake.intersectsEntity(enemy));
-            do {
-                enemy = new SittingEnemy();
-            } while (snake.intersectsEntity(enemy));
+    private void spawnEnemies() {
+        // SimpleEnemy: 5, PatrollingEnemy: 3, ChasingEnemy: 2, SittingEnemy: 2
+        spawnMultipleEnemies(SimpleEnemy.class, 5);
+        spawnMultipleEnemies(PatrollingEnemy.class, 3);
+        spawnMultipleEnemies(ChasingEnemy.class, 2);
+        spawnMultipleEnemies(SittingEnemy.class, 2);
+    }
+
+    private void spawnMultipleEnemies(Class<? extends Enemy> typeOfEnemy, int numberOfEnemies) {
+        for (int i = 0; i < numberOfEnemies; ++i) {
+            spawnEnemy(typeOfEnemy);
         }
     }
 
+    private void spawnEnemy(Class<? extends Enemy> typeOfEnemy) {
+        Enemy enemy = null;
+        boolean notYet = true;
+        while (notYet) {
+            Constructor<Enemy> constructor = null;
+            // get according enemy constructor
+            try {
+                constructor = (Constructor<Enemy>) typeOfEnemy.getConstructor();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+            // instantiate enemy
+            try {
+                enemy = constructor.newInstance();
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+            // check if intersects with snake
+            if (snake.intersectsEntity(enemy)) {
+                enemy.destroy();
+            } else {
+                notYet = false;
+            }
+        }
+    }
+
+
     private void spawnPowerUps(int numberOfPowerUps) {
-        for(int i = 0; i < numberOfPowerUps; ++i) new SimplePowerUp();
+        for (int i = 0; i < numberOfPowerUps; ++i) new SimplePowerUp();
     }
 
-    private void spawnBoostPowerUPs(int numberOfPowerUps) { for(int i = 0; i < numberOfPowerUps; ++i) new BoostPowerUP();
+    private void spawnBoostPowerUPs(int numberOfPowerUps) {
+        for (int i = 0; i < numberOfPowerUps; ++i) new BoostPowerUP();
     }
 
-    private void spawnLifePowerUPs(int numberOfPowerUps) { for(int i = 0; i < numberOfPowerUps; ++i) new LifePowerUp();
+    private void spawnLifePowerUPs(int numberOfPowerUps) {
+        for (int i = 0; i < numberOfPowerUps; ++i) new LifePowerUp();
     }
 
     private void setupInputHandling() {
@@ -98,12 +126,12 @@ public class Game extends Pane {
         game.requestFocus();
     }
 
-    public void showHealth(){
+    public void showHealth() {
         healthText.setText("Health: " + snake.getHealth());
         this.getChildren().add(healthText);
     }
 
-    public Text getHealthText(){
+    public Text getHealthText() {
         return healthText;
     }
 
