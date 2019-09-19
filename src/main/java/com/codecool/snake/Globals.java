@@ -28,8 +28,8 @@ public class Globals {
 
     public void setupResources() {
         resources = new Resources();
-        resources.addImage("SnakeHead", new Image("snake_head.png"));
-        resources.addImage("SnakeBody", new Image("snake_body.png"));
+        resources.addImage("SnakeHead", new Image("tourist1.png"));
+        resources.addImage("SnakeBody", new Image("tourist2.png"));
         resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
         resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
         resources.addImage("EnemyBird", new Image("pigeon.png"));
