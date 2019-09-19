@@ -107,4 +107,12 @@ public class Snake implements Animatable {
         //alert.setOnHidden(evt -> Platform.exit());
         alert.show();
     }
+
+    public boolean intersectsEntity(GameEntity entity) {
+        if (head.intersects(entity)) return true;
+        for (GameEntity bodyPart : body) {
+            if (bodyPart.intersects(entity)) return true;
+        }
+        return false;
+    }
 }
