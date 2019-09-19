@@ -38,6 +38,7 @@ public class Globals {
         resources.addImage("BoostPower", new Image("apple_icon.png")); ////////PNG-t lecserélni TODO
         resources.addImage("LifePower", new Image("snake_head.png")); ////////PNG-t lecserélni TODO
         resources.addImage("EnemyDog", new Image("dog_medium.png"));
+        resources.addImage("EnemyPoop", new Image("poop1.png"));
 
     }
 
