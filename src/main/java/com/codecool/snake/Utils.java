@@ -36,8 +36,6 @@ public class Utils {
 
         double VectorX = EndX - StartX;
         double VectorY = EndY - StartY;
-        System.out.println(EndX);
-        System.out.println(EndY);
         double VectorDivision = VectorY/VectorX;
 
         double Shortdegree = Math.toDegrees(atan(VectorDivision));

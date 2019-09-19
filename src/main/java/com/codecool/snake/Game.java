@@ -14,7 +14,8 @@ import com.codecool.snake.eventhandler.InputHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 
@@ -59,11 +60,12 @@ public class Game extends Pane {
     }
 
     private void spawnEnemies(int numberOfEnemies) {
-        for(int i = 0; i < numberOfEnemies; ++i){
+       /* for(int i = 0; i < numberOfEnemies; ++i){
             //new SimpleEnemy();
             //new PatrollingEnemy();
             new ChasingEnemy();
-        }
+        }*/
+       new ChasingEnemy();
     }
 
     private void spawnPowerUps(int numberOfPowerUps) {
@@ -101,6 +103,12 @@ public class Game extends Pane {
 
     public Snake getSnake() {
         return snake;
+    }
+
+    public void setTableBackground(Image streetBackground) {
+        setBackground(new Background(new BackgroundImage(streetBackground,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
     }
 }
 
