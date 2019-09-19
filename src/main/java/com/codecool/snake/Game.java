@@ -1,9 +1,6 @@
 package com.codecool.snake;
 
-import com.codecool.snake.entities.enemies.ChasingEnemy;
-import com.codecool.snake.entities.enemies.Enemy;
-import com.codecool.snake.entities.enemies.PatrollingEnemy;
-import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.enemies.*;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.powerups.BoostPowerUP;
 import com.codecool.snake.entities.powerups.LifePowerUp;
@@ -70,6 +67,9 @@ public class Game extends Pane {
             } while (snake.intersectsEntity(enemy));
             do {
                 enemy = new ChasingEnemy();
+            } while (snake.intersectsEntity(enemy));
+            do {
+                enemy = new SittingEnemy();
             } while (snake.intersectsEntity(enemy));
         }
     }

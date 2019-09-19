@@ -14,8 +14,4 @@ public class SittingEnemy extends Enemy implements Interactable {
         // does not move
     }
 
-    @Override
-    protected void actionDisappear() {
-        setUpPosition();
-    }
 }

@@ -38,7 +38,7 @@ public class Globals {
         resources.addImage("BoostPower", new Image("starbucks.png"));
         resources.addImage("LifePower", new Image("hotdog.png"));
         resources.addImage("EnemyDog", new Image("dog2.png"));
-        resources.addImage("EnemyPoop", new Image("poop1.png"));
+        resources.addImage("EnemyPoop", new Image("poop1small.png"));
 
     }
 
