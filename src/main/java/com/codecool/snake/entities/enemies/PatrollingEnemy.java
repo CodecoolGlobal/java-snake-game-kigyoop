@@ -10,7 +10,6 @@ public class PatrollingEnemy extends Enemy {
 
         setImage(Globals.getInstance().getImage("EnemyBird"));
         setFullHeading(rnd.nextDouble() * 360, 1);
-        //setRotate(direction);
     }
 
     @Override

@@ -12,7 +12,6 @@ public class SimpleEnemy extends Enemy implements Animatable, Interactable {
         super(10);
         setImage(Globals.getInstance().getImage("EnemyScooter"));
         setFullHeading(rnd.nextDouble() * 360, 1);
-        setRotate(getDirection());
     }
 
 

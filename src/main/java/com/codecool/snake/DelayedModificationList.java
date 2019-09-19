@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Consumer;
+
 
 /**
  * A special container which maintains a list of objects. If any modification (addition, removal)
