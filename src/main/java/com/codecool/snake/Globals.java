@@ -26,18 +26,18 @@ public class Globals {
 
     public void setupResources() {
         resources = new Resources();
-        resources.addImage("SnakeHead", new Image("camera.png"));
+        resources.addImage("SnakeHead", new Image("tourist1.png"));
         resources.addImage("SnakeBody", new Image("standingtourist.png"));
         resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
         resources.addImage("PowerUpBerry", new Image("beer.png"));
         resources.addImage("EnemyBird", new Image("pigeon.png"));
         resources.addImage("EnemyGreenBug", new Image("greenbug.png"));
         resources.addImage("EnemyBrownBug", new Image("brownbug.png"));
-        resources.addImage("EnemyBomg", new Image("bomb.png"));
+        resources.addImage("EnemyBomb", new Image("bomb.png"));
         resources.addImage("EnemyScooter", new Image("scooter.png"));
-        resources.addImage("BoostPower", new Image("apple_icon.png")); ////////PNG-t lecserélni TODO
-        resources.addImage("LifePower", new Image("snake_head.png")); ////////PNG-t lecserélni TODO
-        resources.addImage("EnemyDog", new Image("dog_medium.png"));
+        resources.addImage("BoostPower", new Image("starbucks.png"));
+        resources.addImage("LifePower", new Image("hotdog.png"));
+        resources.addImage("EnemyDog", new Image("dog2.png"));
 
     }
 
