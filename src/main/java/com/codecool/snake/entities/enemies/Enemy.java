@@ -30,6 +30,10 @@ public abstract class Enemy extends GameEntity implements Animatable, Interactab
         //Default empty
     }
 
+    protected void setHeading(Point2D heading) {
+        this.heading = heading;
+    }
+
     protected void setUpPosition() {
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);

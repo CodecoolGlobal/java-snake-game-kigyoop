@@ -45,6 +45,10 @@ public class Snake implements Animatable {
         body.doPendingModifications();
     }
 
+    public SnakeHead getHead() {
+        return head;
+    }
+
     private SnakeControl getUserInput() {
         SnakeControl turnDir = SnakeControl.INVALID;
         if(InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
@@ -95,7 +99,7 @@ public class Snake implements Animatable {
         }
     }
 
-    private GameEntity getLastPart() {
+    public GameEntity getLastPart() {
         GameEntity result = body.getLast();
 
         if(result != null) return result;

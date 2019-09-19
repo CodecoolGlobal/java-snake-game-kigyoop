@@ -44,8 +44,8 @@ public class SnakeHead extends GameEntity implements Interactable {
     @Override
     public void apply(GameEntity entity) {
 
-        new SimplePowerUp();
-        new SimpleEnemy();
+        //new SimplePowerUp();
+        //new SimpleEnemy();
         //new BoostPowerUP();
         //new LifePowerUp();
 

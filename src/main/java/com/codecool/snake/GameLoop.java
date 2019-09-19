@@ -3,6 +3,7 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.enemies.ChasingEnemy;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.BoostPowerUP;
 import com.codecool.snake.entities.snakes.Snake;
@@ -37,12 +38,17 @@ public class GameLoop {
             }
             checkCollisions();
 
-            Utils.randomChance(100);
-
-            if(new Random().nextInt(500)==0){
-                new SimpleEnemy();
+            /*
+            if(new Random().nextInt(700)==0){
+                new BoostPowerUP();
             }
 
+
+            if(new Random().nextInt(500)==0){
+                new ChasingEnemy();
+            }
+
+             */
         }
 
         Globals.getInstance().display.frameFinished();
