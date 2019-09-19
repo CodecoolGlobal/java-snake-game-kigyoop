@@ -40,7 +40,7 @@ public class SnakeBody extends GameEntity implements Interactable {
 
     @Override
     public void apply(GameEntity entity) {
-        // all enemies makes you slower and less healthy
+        // all enemies make you slower and less healthy
         if(entity instanceof Enemy) {
             System.out.println(entity.getMessage());
             snake.changeHealth(-((Enemy) entity).getDamage());

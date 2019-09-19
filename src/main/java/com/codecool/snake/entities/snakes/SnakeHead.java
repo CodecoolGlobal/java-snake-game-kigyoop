@@ -43,7 +43,7 @@ public class SnakeHead extends GameEntity implements Interactable {
     @Override
     public void apply(GameEntity entity) {
 
-        // all enemies makes you slower and less healthy if you eat them, but they will disappear
+        // all enemies make you slower and less healthy if you eat them, but they will disappear
         if(entity instanceof Enemy) {
             System.out.println(getMessage());
             snake.changeHealth(-((Enemy) entity).getDamage());
