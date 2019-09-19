@@ -13,6 +13,7 @@ import javafx.scene.text.Text;
 
 public class Snake implements Animatable {
     /*private static final*/ float speed = 2;
+    public static final double minSpeed = 0.2;
     private int health = 100;
     public int startParts = 4;
 
