@@ -3,6 +3,7 @@ package com.codecool.snake;
 
 import javafx.geometry.Point2D;
 import java.lang.Math;
+import java.util.Random;
 
 import static java.lang.StrictMath.atan;
 
@@ -18,8 +19,14 @@ public class Utils {
         return heading;
     }
 
-    public static void randomChance(int chance){
-        //TODO
+    /**
+     * Get a random boolean for an event.
+     * @param rare seconds between occurrences on average
+     * @return true if the event happens
+     */
+    public static boolean getRandomForEvent(int rare){
+        // 60 frames/sec
+        return new Random().nextInt(rare * 60) == 0;
     }
 
     public static double vectorToDirection(Point2D startPosition, Point2D endPosition) {

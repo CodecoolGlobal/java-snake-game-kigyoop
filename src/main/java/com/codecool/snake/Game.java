@@ -85,7 +85,7 @@ public class Game extends Pane {
      * It won't intersect the snake.
      * @param typeOfEnemy class of the enemy needed
      */
-    private void spawnEnemy(Class<? extends Enemy> typeOfEnemy) {
+    public void spawnEnemy(Class<? extends Enemy> typeOfEnemy) {
         Enemy enemy = null;
         boolean notYet = true;
         while (notYet) {
