@@ -42,11 +42,13 @@ public class GameLoop {
             if(new Random().nextInt(700)==0){
                 new BoostPowerUP();
             }
-            */
+
 
             if(new Random().nextInt(500)==0){
                 new ChasingEnemy();
             }
+
+             */
         }
 
         Globals.getInstance().display.frameFinished();
