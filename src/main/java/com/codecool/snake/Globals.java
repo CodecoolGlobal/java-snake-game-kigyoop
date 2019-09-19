@@ -12,7 +12,6 @@ public class Globals {
 
     public Display display;
     public Game game;
-
     private GameLoop gameLoop;
     private Resources resources;
 

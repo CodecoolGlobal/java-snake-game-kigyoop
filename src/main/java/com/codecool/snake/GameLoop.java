@@ -37,13 +37,12 @@ public class GameLoop {
             }
             checkCollisions();
 
+            Utils.randomChance(100);
 
-            if(new Random().nextInt(700)==0){
-                new BoostPowerUP();
-            }
             if(new Random().nextInt(500)==0){
                 new SimpleEnemy();
             }
+
         }
 
         Globals.getInstance().display.frameFinished();

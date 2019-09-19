@@ -2,6 +2,11 @@ package com.codecool.snake.entities.snakes;
 
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
+import com.codecool.snake.entities.enemies.Enemy;
+import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.powerups.BoostPowerUP;
+import com.codecool.snake.entities.powerups.LifePowerUp;
+import com.codecool.snake.entities.powerups.SimplePowerUp;
 import javafx.geometry.Point2D;
 
 import java.util.LinkedList;

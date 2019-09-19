@@ -17,7 +17,7 @@ public class Utils {
         return heading;
     }
 
-    public void randomChance(int chance){
+    public static void randomChance(int chance){
         if (new Random().nextInt(chance) == 0) {
             new BoostPowerUP();
         }
